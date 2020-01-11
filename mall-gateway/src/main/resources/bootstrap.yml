@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: mall-gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 119.23.14.253:8848
+        group: DEFAULT_GROUP
+        prefix: mall-gateway
+        file-extension: yaml
+      discovery:
+        server-addr: 119.23.14.253:8848
