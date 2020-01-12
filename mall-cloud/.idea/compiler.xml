@@ -6,13 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mall-common" />
         <module name="mall-gateway" />
+        <module name="mall-auth" />
+        <module name="mall-common" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mall-auth" target="1.8" />
+      <module name="mall-cloud" target="1.8" />
+      <module name="mall-common" target="1.8" />
+      <module name="mall-gateway" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mall-auth" options="-parameters" />
       <module name="mall-common" options="-parameters" />
       <module name="mall-gateway" options="-parameters" />
     </option>
