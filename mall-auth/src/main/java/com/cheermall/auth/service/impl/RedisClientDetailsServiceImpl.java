@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.common.exceptions.InvalidClientException;
 import org.springframework.security.oauth2.provider.ClientDetails;
+import org.springframework.security.oauth2.provider.client.BaseClientDetails;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.stereotype.Service;
 import javax.sql.DataSource;
@@ -36,8 +37,11 @@ public class RedisClientDetailsServiceImpl extends JdbcClientDetailsService {
         ClientDetails clientDetails = null;
         String value = (String) redisService.hget(CACHE_CLIENT_KEY, clientId);
         if (StringUtils.isBlank(value)) {
-            clientDetails = c
+            clientDetails = cacheAndGetClient(clientId);
+        } else {
+            clientDetails = JSONObject.parseObject(value, BaseClientDetails.class);
         }
+        return clientDetails;
     }
 
     /**

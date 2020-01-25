@@ -4,9 +4,9 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 119.23.14.253:8848
+        server-addr: 127.0.0.1:8001
         group: DEFAULT_GROUP
         prefix: mall-gateway
         file-extension: yaml
       discovery:
-        server-addr: 119.23.14.253:8848
+        server-addr: 127.0.0.1:8001

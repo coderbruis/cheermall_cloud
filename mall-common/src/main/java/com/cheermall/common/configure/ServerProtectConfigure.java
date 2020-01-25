@@ -21,7 +21,6 @@ public class ServerProtectConfigure implements WebMvcConfigurer {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
     @Bean
     public HandlerInterceptor serverProtectInterceptor() {
         return new ServerProtectInterceptor();
