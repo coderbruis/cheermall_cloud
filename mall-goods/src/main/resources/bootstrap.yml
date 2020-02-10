@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: CheeerMall-Goods-Service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8001
+        group: DEFAULT_GROUP
+        prefix: cheermall-goods-service
+        file-extension: yaml
+        refreshable-dataids:
+      discovery:
+        server-addr: 127.0.0.1:8001
